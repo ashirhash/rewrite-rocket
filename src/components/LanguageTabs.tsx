@@ -13,10 +13,12 @@ interface Mode {
 interface LanguageTabsProps {
     modes: Mode[];
     activeStyle: string,
-    setActiveStyle: React.Dispatch<React.SetStateAction<string>>
+    setActiveStyle: React.Dispatch<React.SetStateAction<string>>,
+    activeLanguage: string,
+    setActiveLanguage: React.Dispatch<React.SetStateAction<string>>,
   }
 
-const LanguageTabs = ({ modes, activeStyle, setActiveStyle }: LanguageTabsProps) => {
+const LanguageTabs = ({ modes, activeStyle, setActiveStyle, activeLanguage, setActiveLanguage }: LanguageTabsProps) => {
 
     
 
@@ -25,10 +27,10 @@ const LanguageTabs = ({ modes, activeStyle, setActiveStyle }: LanguageTabsProps)
         <div className="">
             <div className="container py-10">
 
-                <Tabs defaultValue={modes[0]?.language} className="border-b">
+                <Tabs defaultValue={activeLanguage} className="border-b">
                     <TabsList className='mb-3 w-full justify-start'>
                         {modes.map((item, index) => (
-                            <TabsTrigger className='capitalize active:bg-accent_one' key={`${index}-${Math.random()}-tabs`} value={item.language}>
+                            <TabsTrigger className='capitalize active:bg-accent_one' key={`${index}-${Math.random()}-tabs`} value={item.language} onClick={(e)=> setActiveLanguage(item.language)}>
                                 {item.language}
                             </TabsTrigger>
                         ))}
