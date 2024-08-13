@@ -17,7 +17,12 @@ function Evaluation({ activeStyle }: EvaluationProps) {
     const [isLoading, setisLoading] = useState(false)
 
     // Make sure to include these imports:
-    const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY);
+    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY;
+    if (!apiKey) {
+        // Handle the case where apiKey is undefined
+        return <div>Error: API key is missing.</div>;
+    }
+    const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     async function paraphrase(input: string, tone: string) {

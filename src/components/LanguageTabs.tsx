@@ -38,7 +38,7 @@ const LanguageTabs = ({ modes, activeStyle, setActiveStyle }: LanguageTabsProps)
                             <span className='text-md font-bold'>Modes:</span>
                             <ul className='flex gap-3'>
                                 {item.tones.map((lang, i) => (
-                                    <li>
+                                    <li key={`${index}-${Math.random()}-tabs-tones`}>
                                         <Button className={` text-md py-0 px-3 capitalize font-normal rounded-none bg-transparent text-black hover:text-black hover:bg-transparent ${lang == activeStyle ? "text-accent_one border-b-2 border-accent_one" : ""}`} onClick={()=> setActiveStyle(lang) }>
                                             {lang}
                                         </Button>
