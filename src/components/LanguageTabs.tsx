@@ -28,13 +28,13 @@ const LanguageTabs = ({ modes, activeStyle, setActiveStyle }: LanguageTabsProps)
                 <Tabs defaultValue={modes[0]?.language} className="border-b">
                     <TabsList className='mb-3 w-full justify-start'>
                         {modes.map((item, index) => (
-                            <TabsTrigger className='capitalize active:bg-accent_one' key={index} value={item.language}>
+                            <TabsTrigger className='capitalize active:bg-accent_one' key={`${index}-${Math.random()}-tabs`} value={item.language}>
                                 {item.language}
                             </TabsTrigger>
                         ))}
                     </TabsList>
                     {modes.map((item, index) => (
-                        <TabsContent  key={index} value={item.language} className='flex m-0 items-center gap-3'>
+                        <TabsContent  key={`${index}-${Math.random()}-tabs-content`} value={item.language} className='flex m-0 items-center gap-3'>
                             <span className='text-md font-bold'>Modes:</span>
                             <ul className='flex gap-3'>
                                 {item.tones.map((lang, i) => (

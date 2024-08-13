@@ -22,7 +22,7 @@ function Evaluation({ activeStyle }: EvaluationProps) {
 
     async function paraphrase(input: string, tone: string) {
         setisLoading(true)
-        const prompt = `You are a professional content writer. Your task is to rewrite the following text: ${input} according to a ${tone} tone.`
+        const prompt = `You are a professional content writer. Your task is to rewrite the following text: ${input} according to a ${tone} tone. The output will be in respected langugae`
 
         const result = await model.generateContent(prompt);
         const response = await result.response;
@@ -32,7 +32,7 @@ function Evaluation({ activeStyle }: EvaluationProps) {
         setisLoading(false)
     }
 
-    function copyText (text) {
+    function copyText (text: string) {
         navigator.clipboard.writeText(text)
     }
 
