@@ -1,27 +1,39 @@
+"use client"
+
+import { useState } from "react";
+import Evaluation from "@/components/Evaluation";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import LanguageTabs from "@/components/LanguageTabs";
 
+
+
+
+
 const modes = [
   {
     language: "english",
-    modes: ["standard", "natural", "formal"]
+    tones: ["standard", "natural", "formal", "informal", "funny"]
   },
   {
     language: "spanish",
-    modes: ["natural", "formal", "standard"]
+    tones: ["natural", "formal", "standard"]
   },
   {
     language: "french",
-    modes: ["formal", "standard", "natural"]
+    tones: ["formal", "standard", "natural"]
   }
 ];
 
+
+
 export default function Home() {
+  const [activeStyle, setActiveStyle] = useState<string>(modes[0]?.tones[0]);
   return (
     <>
       <Header />
-      <LanguageTabs modes={modes} />
+      <LanguageTabs activeStyle={activeStyle} setActiveStyle={setActiveStyle} modes={modes} />
+      <Evaluation activeStyle={activeStyle} />
       <Footer />
     </>
   );
