@@ -16,32 +16,7 @@ interface EvaluationProps {
     activeLanguage: string,
 }
 
-
-const modes = [
-    {
-      language: "english",
-      tones: ["standard", "natural", "formal", "informal", "funny"]
-    },
-    {
-      language: "spanish",
-      tones:  ["standard", "natural", "formal", "informal", "funny"]
-    },
-    {
-      language: "french",
-      tones: ["standard", "natural", "formal", "informal", "funny"]
-    }
-  ];
-
-  
-  
-function Evaluation() {
-
-
-
-    const [activeStyle, setActiveStyle] = useState<string>(modes[0]?.tones[0]);
-    const [activeLanguage, setActiveLanguage] = useState<string>(modes[0]?.language);
-  
-
+function Evaluation({ activeStyle, activeLanguage }: EvaluationProps) {
 
 
     const [userInput, setUserInput] = useState("")
@@ -79,9 +54,9 @@ function Evaluation() {
         <>
             <div className="pb-10">
                 <div className="container">
-                    <div className="flex justify-between gap-5">
+                    <div className="flex justify-between gap-5 md:flex-row flex-col">
                         <div className="flex-1 relative">
-                            <Textarea value={userInput} onChange={(e) => setUserInput(e.target.value)} placeholder='Write something to paraphrase...' className='pr-14 rounded-md border min-h-[500px] max-h-screen bg-muted' />
+                            <Textarea value={userInput} onChange={(e) => setUserInput(e.target.value)} placeholder='Write something to paraphrase...' className='pr-14 rounded-md border min-h-[300px] md:min-h-[500px] max-h-screen bg-muted focus-visible:ring-accent_one' />
                             <TooltipProvider>
                                 <Tooltip>
                                     <TooltipTrigger asChild>
@@ -99,8 +74,9 @@ function Evaluation() {
                             </TooltipProvider>
                             <span className={`text-sm ${userInput.length < 2000 ? "text-accent_one" : "text-red-600"} font-semibold`}>{userInput.length} characters</span>
                         </div>
+                        <Button disabled={isLoading || userInput.length < 20 || userInput.length >= 2000} className='md:hidden flex justify-center mt-5 w-fit mx-auto  -translate-x-0 md:-order-none md:-translate-x-1/2 px-6 rounded-full text-lg' onClick={() => paraphrase(userInput, activeStyle, activeLanguage)}>Paraphrase</Button>
                         <div className="flex-1 relative">
-                            <Textarea readOnly={!isOutputEditable} onChange={(e) => setUserOutput(e.target.value)} value={userOutput} placeholder='Your output will be here' className={`${isOutputEditable ? "focus:outline-2 " : "focus:outline-none"} pr-14 rounded-md border min-h-[500px] max-h-screen bg-muted`} />
+                            <Textarea readOnly={!isOutputEditable} onChange={(e) => setUserOutput(e.target.value)} value={userOutput} placeholder='Your output will be here' className={`${!isOutputEditable ? "ring-0 focus-visible:ring-0" : " ring-2 ring-accent_one focus-visible:ring-accent_one"} pr-14 rounded-md border min-h-[300px] md:min-h-[500px] max-h-screen bg-muted`} />
 
                             <TooltipProvider>
                                 <Tooltip>
@@ -119,8 +95,8 @@ function Evaluation() {
                             <TooltipProvider>
                                 <Tooltip>
                                     <TooltipTrigger asChild>
-                                        <Button onClick={() => setIsOutputEditable(prev => !prev)} className='absolute right-3 top-14 px-2'>
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                                        <Button onClick={() => setIsOutputEditable(prev => !prev)} className={`${isOutputEditable ? "animate-none" : ""} absolute right-3 top-14 px-2`}>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={`size-5 ${isOutputEditable ? "animate-pulse" : ""} `}>
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                                             </svg>
                                         </Button>
@@ -133,7 +109,7 @@ function Evaluation() {
                             <span className={`text-sm text-accent_one font-semibold`}>{userOutput.length} characters</span>
                         </div>
                     </div>
-                    <Button disabled={isLoading || userInput.length < 20 || userInput.length >= 2000} className='flex justify-center mt-5 w-fit mx-auto -translate-x-1/2 px-6 rounded-full text-lg' onClick={() => paraphrase(userInput, activeStyle, activeLanguage)}>Paraphrase</Button>
+                    <Button disabled={isLoading || userInput.length < 20 || userInput.length >= 2000} className='justify-center mt-5 w-fit mx-auto  -translate-x-0 md:flex hidden md:-translate-x-1/2 px-6 rounded-full text-lg' onClick={() => paraphrase(userInput, activeStyle, activeLanguage)}>Paraphrase</Button>
                 </div>
             </div >
         </>

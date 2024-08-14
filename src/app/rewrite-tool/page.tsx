@@ -14,7 +14,7 @@ const modes = [
   },
   {
     language: "spanish",
-    tones:  ["standard", "natural", "formal", "informal", "funny"]
+    tones: ["standard", "natural", "formal", "informal", "funny"]
   },
   {
     language: "french",
@@ -31,7 +31,7 @@ export default function Home() {
     <>
       <Header />
       <LanguageTabs activeStyle={activeStyle} setActiveStyle={setActiveStyle} activeLanguage={activeLanguage} setActiveLanguage={setActiveLanguage} modes={modes} />
-      <Evaluation activeStyle={activeStyle} activeLanguage={activeLanguage}/>
+      <Evaluation activeStyle={activeStyle} activeLanguage={activeLanguage} />
       <About />
       <Footer />
     </>

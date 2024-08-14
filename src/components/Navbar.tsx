@@ -5,11 +5,11 @@ function Navbar() {
     return (
         <>
             <nav>
-                <ul>
-                    <li>
+                <ul className='flex gap-x-3 items-center'>
+                    <li className='font-bold text-md'>
                         <Link href="/">Home</Link>
                     </li>
-                    <li>
+                    <li className='font-bold'>
                         <Link href="/rewrite-tool">Rewrite Tool</Link>
                     </li>
                 </ul>
