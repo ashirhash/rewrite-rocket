@@ -25,12 +25,12 @@ const LanguageTabs = ({ modes, activeStyle, setActiveStyle, activeLanguage, setA
             <div className="container py-10">
 
                 <Tabs defaultValue={activeLanguage} className="border-b">
-                    <TabsList className='mb-3 w-full justify-start hidden'>
-                        {/* {modes.map((item, index) => (
+                    <TabsList className='mb-3 w-full justify-start'>
+                        {modes.map((item, index) => (
                             <TabsTrigger className='capitalize active:bg-accent_one' key={`${index}-${Math.random()}-tabs`} value={item.language} onClick={(e) => setActiveLanguage(item.language)}>
                                 {item.language}
                             </TabsTrigger>
-                        ))} */}
+                        ))}
                     </TabsList>
                     {modes.map((item, index) => (
                         <TabsContent key={`${index}-${Math.random()}-tabs-content`} value={item.language} className='flex m-0 items-center gap-3'>

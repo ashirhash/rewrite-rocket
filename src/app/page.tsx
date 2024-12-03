@@ -2,14 +2,12 @@
 
 import { useState } from "react";
 import Evaluation from "@/components/Evaluation";
-import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import LanguageTabs from "@/components/LanguageTabs";
-import About from "@/components/About";
 
 const modes = [
   {
-    language: "portuguese",
+    language: "english",
     tones: ["standard", "natural", "formal", "informal", "funny"]
   },
   {
@@ -32,8 +30,6 @@ export default function Home() {
       <Header />
       <LanguageTabs activeStyle={activeStyle} setActiveStyle={setActiveStyle} activeLanguage={activeLanguage} setActiveLanguage={setActiveLanguage} modes={modes} />
       <Evaluation activeStyle={activeStyle} activeLanguage={activeLanguage}/>
-      <About />
-      <Footer />
     </>
   );
 }

@@ -37,6 +37,9 @@ function Evaluation({ activeStyle, activeLanguage }: EvaluationProps) {
         setisLoading(true)
         const prompt = `You are a professional content writer. Your task is to rewrite the following text: ${input} according to a ${tone} tone. The output will be in ${language} language. Do not add emojis in the output unless explicitly said by the user. Your output length should approximately be equal to the input length of the user`
 
+        console.log(prompt);
+        
+
         const result = await model.generateContent(prompt);
         const response = await result.response;
         const text = response.text();
@@ -56,7 +59,7 @@ function Evaluation({ activeStyle, activeLanguage }: EvaluationProps) {
                 <div className="container">
                     <div className="flex justify-between gap-5 md:flex-row flex-col">
                         <div className="flex-1 relative">
-                            <Textarea value={userInput} onChange={(e) => setUserInput(e.target.value)} placeholder='Write something to paraphrase...' className='pr-14 rounded-md border min-h-[300px] md:min-h-[500px] max-h-screen bg-muted focus-visible:ring-accent_one' />
+                            <Textarea value={userInput} onChange={(e) => setUserInput(e.target.value)} placeholder='Write something to paraphrase...' className='pr-14 rounded-md border min-h-[300px] md:h-[55vh] max-h-screen bg-muted focus-visible:ring-accent_one' />
                             <TooltipProvider>
                                 <Tooltip>
                                     <TooltipTrigger asChild>
@@ -76,7 +79,7 @@ function Evaluation({ activeStyle, activeLanguage }: EvaluationProps) {
                         </div>
                         <Button disabled={isLoading || userInput.length < 20 || userInput.length >= 2000} className='md:hidden flex justify-center mt-5 w-fit mx-auto  -translate-x-0 md:-order-none md:-translate-x-1/2 px-6 rounded-full text-lg' onClick={() => paraphrase(userInput, activeStyle, activeLanguage)}>Paraphrase</Button>
                         <div className="flex-1 relative">
-                            <Textarea readOnly={!isOutputEditable} onChange={(e) => setUserOutput(e.target.value)} value={userOutput} placeholder='Your output will be here' className={`${!isOutputEditable ? "ring-0 focus-visible:ring-0" : " ring-2 ring-accent_one focus-visible:ring-accent_one"} pr-14 rounded-md border min-h-[300px] md:min-h-[500px] max-h-screen bg-muted`} />
+                            <Textarea readOnly={!isOutputEditable} onChange={(e) => setUserOutput(e.target.value)} value={userOutput} placeholder='Your output will be here' className={`${!isOutputEditable ? "ring-0 focus-visible:ring-0" : " ring-2 ring-accent_one focus-visible:ring-accent_one"} pr-14 rounded-md border min-h-[300px] md:h-[55vh] max-h-screen bg-muted`} />
 
                             <TooltipProvider>
                                 <Tooltip>

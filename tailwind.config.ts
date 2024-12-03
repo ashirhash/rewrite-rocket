@@ -19,7 +19,7 @@ const config = {
     },
     extend: {
       colors: {
-        accent_one: "#4b9359",
+        accent_one: "#009fa9",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
