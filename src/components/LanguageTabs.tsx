@@ -46,7 +46,7 @@ const LanguageTabs = ({ modes, activeStyle, setActiveStyle, activeLanguage, setA
                             </ul>
                         </TabsContent>
                     ))}
-                </Tabs>
+                </Tabs> 
             </div>
         </div>
     );
