@@ -34,7 +34,7 @@ The user enters the text they want to translate or rewrite.
 2: **Select Options**
 
 - Choose a language from the available options.
-- Select a tone for paraphrasing.
+- Select a tone for paraphrasing
 
 3: **Submit**
 
