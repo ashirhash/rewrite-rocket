@@ -23,7 +23,7 @@ Users can input any text they'd like to translate or paraphrase.
 **⚙️ Customization**
 
 - Select from a predefined list of languages.
-- Choose the desired tone for rewriting.
+- Choose the desired tone for rewriting
 
 ## 🚀 How It Works
 
