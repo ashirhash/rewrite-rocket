@@ -96,6 +96,6 @@ This project is licensed under the [MIT](https://opensource.org/license/mit) Lic
 
 - Next.js for the framework.
 - Gemini API for text translation and paraphrasing services.
-- Vercel for seamless deployment.
+- Vercel for seamless deployment
 
 Enjoy using the tool and happy paraphrasing 😊
