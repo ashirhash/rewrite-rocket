@@ -98,4 +98,4 @@ This project is licensed under the [MIT](https://opensource.org/license/mit) Lic
 - Gemini API for text translation and paraphrasing services.
 - Vercel for seamless deployment
 
-Enjoy using the tool and happy paraphrasing 😊
+Enjoy using the tool and happy paraphrasing. 😊
