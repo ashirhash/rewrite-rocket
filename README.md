@@ -1,6 +1,6 @@
 # Rewrite Rocket - A text manipulation tool 📝
 
-This project is a *Next.js-based web application* that leverages the Gemini API to provide users with powerful text translation and paraphrasing capabilities. The tool allows users to input text, select their desired language and tone, and receive the translated or rewritten text in real-time.
+This project is a *Next.js-based web application* that leverages the Gemini API to provide users with powerful text translation and paraphrasing capabilities. The tool allows users to input text, select their desired language and tone, and receive the translated or rewritten text in real-time
 
 **[Live Demo](https://rewriterocket.vercel.app/)**
 
